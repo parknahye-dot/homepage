@@ -467,3 +467,50 @@ if (typeof VanillaTilt !== 'undefined') {
         "max-glare": 0.1
     });
 }
+/* 지도 ↔ 위성 토글 (임베드 src 교체 방식) */
+(function(){
+  const iframe = document.getElementById('gmap');
+  if(!iframe) return;
+
+  // 1) 기본(지도) – 지금 사용 중인 퍼오기 URL (pb=... 전체를 그대로)
+  const roadSrc = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d404.0873073060889!2d128.62677323292826!3d35.880905792657735!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3565e195cf24f40d%3A0xf4ed22431d783ec8!2z7ZWc6rWtSVTqtZDsnKHsm5A!5e0!3m2!1sko!2skr!4v1756968988117!5m2!1sko!2skr";
+
+  // 2) 위성 – 같은 위치를 q=위도,경도 + t=k(위성)로 로드
+  const satSrc  = "https://www.google.com/maps?q=35.880905792657735,128.62677323292826&hl=ko&z=16&t=k&output=embed";
+
+  let isSatellite = false;
+  const btn = document.getElementById('mapTypeToggle');
+
+  btn?.addEventListener('click', () => {
+    isSatellite = !isSatellite;
+    iframe.src = isSatellite ? satSrc : roadSrc;
+    // 아이콘도 바꿔주기(선택)
+    btn.innerHTML = isSatellite ? '<i class="bi bi-map"></i>' : '<i class="bi bi-layers"></i>';
+  });
+})();
+
+
+/* 지도 ↔ 위성 토글 (안전 버전: 현재 iframe src를 그대로 읽음) */
+(function () {
+  const iframe = document.getElementById('gmap');
+  const btn = document.getElementById('mapTypeToggle');
+  if (!iframe || !btn) return;
+
+  // 1) 현재 로드된 '지도' 퍼오기 URL을 그대로 확보 (복사 실수 방지)
+  const roadSrc = iframe.getAttribute('src');
+
+  // 2) 위성 URL (위도,경도는 지금 좌표로 세팅)
+  const lat = 35.880905792657735;
+  const lng = 128.62677323292826;
+  const satSrc = `https://www.google.com/maps?q=${lat},${lng}&hl=ko&z=16&t=k&output=embed`;
+
+  let isSatellite = false;
+
+  btn.addEventListener('click', (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    isSatellite = !isSatellite;
+    iframe.setAttribute('src', isSatellite ? satSrc : roadSrc);
+    btn.innerHTML = isSatellite ? '<i class="bi bi-map"></i>' : '<i class="bi bi-layers"></i>';
+  });
+})();
