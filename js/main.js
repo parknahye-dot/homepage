@@ -514,3 +514,24 @@ if (typeof VanillaTilt !== 'undefined') {
     btn.innerHTML = isSatellite ? '<i class="bi bi-map"></i>' : '<i class="bi bi-layers"></i>';
   });
 })();
+
+// ---------------- box hover → 100% 표시 ---------------- //
+document.addEventListener("DOMContentLoaded", function () {
+  const boxes = document.querySelectorAll(".box.box-hover");
+
+  boxes.forEach((box) => {
+    // span.percent-text 미리 생성해서 박스 안에 추가
+    const percentText = document.createElement("span");
+    percentText.classList.add("percent-text");
+    percentText.innerText = "100%";
+    box.appendChild(percentText);
+
+    // hover 끝나면 show-percent 클래스 붙여서 글씨 표시
+    box.addEventListener("mouseenter", () => {
+      // CSS transition (400ms) 끝난 뒤에 글씨 보이게
+      setTimeout(() => {
+        box.classList.add("show-percent");
+      }, 400);
+    });
+  });
+});
