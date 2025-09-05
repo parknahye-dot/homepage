@@ -26,31 +26,31 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 
-    function validateForm() {
-        var isValid = true;
-        var inputs = form?.querySelectorAll('input, textarea');
+    // function validateForm() {
+    //     var isValid = true;
+    //     var inputs = form?.querySelectorAll('input, textarea');
 
-        inputs.forEach(function (input) {
-            var errorElement = input.nextElementSibling;
-            if (!errorElement || !errorElement.classList.contains('error-message')) {
-                errorElement = document.createElement('div');
-                errorElement.className = 'error-message';
-                input.parentNode.insertBefore(errorElement, input.nextSibling);
-            }
+    //     inputs.forEach(function (input) {
+    //         var errorElement = input.nextElementSibling;
+    //         if (!errorElement || !errorElement.classList.contains('error-message')) {
+    //             errorElement = document.createElement('div');
+    //             errorElement.className = 'error-message';
+    //             input.parentNode.insertBefore(errorElement, input.nextSibling);
+    //         }
 
-            var errorMessage = getErrorMessage(input);
-            if (errorMessage) {
-                isValid = false;
-                errorElement.textContent = errorMessage;
-                errorElement.style.display = 'block';
-            } else {
-                errorElement.textContent = '';
-                errorElement.style.display = 'none';
-            }
-        });
+    //         var errorMessage = getErrorMessage(input);
+    //         if (errorMessage) {
+    //             isValid = false;
+    //             errorElement.textContent = errorMessage;
+    //             errorElement.style.display = 'block';
+    //         } else {
+    //             errorElement.textContent = '';
+    //             errorElement.style.display = 'none';
+    //         }
+    //     });
 
-        return isValid;
-    }
+    //     return isValid;
+    // }
 
     function getErrorMessage(input) {
         if (input.value.trim() === '') {
@@ -90,8 +90,6 @@ document.addEventListener("DOMContentLoaded", function () {
         toastr.clear();
         if (type === "success") {
             toastr.success(message, "", { className: "toast-success" });
-        } else {
-            toastr.error(message, "", { className: "toast-error" });
         }
     }
 
@@ -516,22 +514,74 @@ if (typeof VanillaTilt !== 'undefined') {
 })();
 
 // ---------------- box hover → 100% 표시 ---------------- //
+// ---------------- box hover → 100% 표시 ---------------- //
 document.addEventListener("DOMContentLoaded", function () {
-  const boxes = document.querySelectorAll(".box.box-hover");
+  // ⬇️ About 섹션 안의 .box.box-hover만 선택
+  const boxes = document.querySelectorAll(".about .box.box-hover");
 
   boxes.forEach((box) => {
-    // span.percent-text 미리 생성해서 박스 안에 추가
     const percentText = document.createElement("span");
     percentText.classList.add("percent-text");
     percentText.innerText = "100%";
     box.appendChild(percentText);
 
-    // hover 끝나면 show-percent 클래스 붙여서 글씨 표시
     box.addEventListener("mouseenter", () => {
-      // CSS transition (400ms) 끝난 뒤에 글씨 보이게
       setTimeout(() => {
         box.classList.add("show-percent");
       }, 400);
     });
+  });
+});
+
+
+
+
+$(document).ready(function () {
+  $("#contact-us-form").on("submit", function (e) {
+    e.preventDefault();
+
+    const name = $("#name").val().trim();
+    const subject = $("#subject").val().trim();
+    const email = $("#email").val().trim();
+    const message = $("#message").val().trim();
+
+    // 기존 에러 제거
+    $(".text-input").parent().removeClass("input-error").removeAttr("data-error");
+
+    let valid = true;
+
+    if (name.length < 2) {
+      $("#name").parent().addClass("input-error").attr("data-error", "이름은 2글자 이상 입력해주세요.");
+      valid = false;
+    }
+    if (subject.length < 5) {
+      $("#subject").parent().addClass("input-error").attr("data-error", "제목은 5글자 이상 입력해주세요.");
+      valid = false;
+    }
+    if (!email.includes("@")) {
+      $("#email").parent().addClass("input-error").attr("data-error", "올바른 이메일 형식을 입력해주세요.");
+      valid = false;
+    }
+    if (message.length < 5) {
+      $("#message").parent().addClass("input-error").attr("data-error", "메시지는 5글자 이상 입력해주세요.");
+      valid = false;
+    }
+
+    // 에러 있으면 1.5초 후 자동 제거
+    if (!valid) {
+      setTimeout(() => {
+        $(".input-error").removeClass("input-error").removeAttr("data-error");
+      }, 1500);
+      return;
+    }
+
+    // 성공 시 모달 띄우기
+    $("#successModal").fadeIn().addClass("show");
+  });
+
+  // 확인 버튼 클릭 → 모달 닫기 + 폼 초기화
+  $("#modalConfirmBtn").on("click", function () {
+    $("#successModal").fadeOut().removeClass("show");
+    $("#contact-us-form")[0].reset();
   });
 });

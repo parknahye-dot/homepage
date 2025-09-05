@@ -1856,4 +1856,170 @@ svg {
   background: #15171a;
 }
 
+/* Info 링크 hover 효과 */
+.info-link {
+  color: inherit;              /* 원래 글자색 유지 */
+  text-decoration: none;       /* 밑줄 제거 */
+  transition: color 0.3s ease; /* 색 변경 부드럽게 */
+}
 
+.info-link:hover {
+  color: #21df51;              /* 마우스 올리면 초록색으로 변경 */
+}
+
+/* 모달 기본 숨김 */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1050;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+/* 모달 내용 */
+.modal-content {
+  position: absolute;
+  top: 10%; /* 중앙 맨 위쪽 */
+  left: 50%;
+  transform: translateX(-50%);
+  background: #fff;
+  padding: 20px 30px;
+  border-radius: 12px;
+  text-align: center;
+  width: 400px;
+  max-width: 90%;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* 확인 버튼 */
+#modalConfirmBtn {
+  background-color: #21df51;
+  border: none;
+  color: #fff;
+  padding: 8px 18px;
+  margin-top: 15px;
+  border-radius: 6px;
+  cursor: pointer;
+  float: right; /* 우측 하단 */
+}
+
+#modalConfirmBtn:hover {
+  background-color: #1ab844;
+}
+
+/* ====== 말풍선 토스트 ====== */
+.input-error {
+  position: relative;
+}
+
+.input-error::before {
+  content: attr(data-error);
+  position: absolute;
+  top: -35px;
+  left: 0;
+  background: #21df51;
+  color: #fff;
+  font-size: 13px;
+  padding: 6px 12px;
+  border-radius: 6px;
+  white-space: nowrap;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.15);
+  animation: fadeIn 0.3s ease;
+}
+
+/* 말풍선 화살표 */
+.input-error::after {
+  content: "";
+  position: absolute;
+  top: -8px;
+  left: 15px;
+  border-width: 6px;
+  border-style: solid;
+  border-color: #21df51 transparent transparent transparent;
+}
+
+/* 말풍선 애니메이션 */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-5px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ====== 세련된 모달 ====== */
+.modal-content {
+  position: absolute;
+  top: 10%;
+  left: 50%;
+  transform: translateX(-50%) scale(0.9);
+  background: #fff;
+  padding: 25px 30px;
+  border-radius: 16px;
+  text-align: center;
+  width: 420px;
+  max-width: 90%;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.25);
+  opacity: 0;
+  transition: all 0.3s ease;
+}
+
+/* 모달 애니메이션 효과 */
+.modal.show .modal-content {
+  transform: translateX(-50%) scale(1);
+  opacity: 1;
+}
+
+/* 확인 버튼 */
+#modalConfirmBtn {
+  background-color: #21df51;
+  border: none;
+  color: #fff;
+  padding: 10px 20px;
+  margin-top: 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  float: right;
+  transition: background 0.2s ease;
+}
+
+#modalConfirmBtn:hover {
+  background-color: #1ab844;
+}
+
+/* ===== 입력칸 말풍선 에러 ===== */
+.input-error {
+  position: relative;
+}
+
+.input-error::before {
+  content: attr(data-error);
+  position: absolute;
+  top: -35px;
+  left: 0;
+  background: #21df51;
+  color: #fff;
+  font-size: 13px;
+  padding: 6px 12px;
+  border-radius: 6px;
+  white-space: nowrap;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.15);
+  animation: fadeIn 0.2s ease;
+}
+
+/* 말풍선 화살표 */
+.input-error::after {
+  content: "";
+  position: absolute;
+  top: -8px;
+  left: 15px;
+  border-width: 6px;
+  border-style: solid;
+  border-color: #21df51 transparent transparent transparent;
+}
+
+/* 기본 에러 메시지 숨기기 */
+label.error,
+.error {
+  display: none !important;
+}
