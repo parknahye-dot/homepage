@@ -585,3 +585,74 @@ $(document).ready(function () {
     $("#contact-us-form")[0].reset();
   });
 });
+
+
+// === 로그인 상태 확인 ===
+document.addEventListener("DOMContentLoaded", () => {
+  const username = localStorage.getItem("username");
+  const loginBtn = document.getElementById("login-btn");
+  const userInfo = document.getElementById("user-info");
+  const logoutBtn = document.getElementById("logout-btn");
+
+  if (username) {
+    // 로그인 상태
+    loginBtn.style.display = "none";
+    userInfo.style.display = "inline-block";
+    userInfo.textContent = username + "님";
+    logoutBtn.style.display = "inline-block";
+  } else {
+    // 로그아웃 상태
+    loginBtn.style.display = "inline-block";
+    userInfo.style.display = "none";
+    logoutBtn.style.display = "none";
+  }
+
+  logoutBtn.addEventListener("click", (e) => {
+    e.preventDefault();
+    localStorage.removeItem("username");
+    location.reload();
+  });
+});
+
+
+document.addEventListener("DOMContentLoaded", () => {
+  const username = localStorage.getItem("username");
+
+  const contentLoginBtn = document.getElementById("content-login-btn");
+  const contentUserInfo = document.getElementById("content-user-info");
+
+  if (contentLoginBtn && contentUserInfo) {
+    if (username) {
+      // 로그인 상태 → 버튼 숨기고 이름 표시
+      contentLoginBtn.style.display = "none";
+      contentUserInfo.style.display = "inline-block";
+      contentUserInfo.textContent = username + "님, 환영합니다!";
+    } else {
+      // 로그아웃 상태 → 버튼 보이기
+      contentLoginBtn.style.display = "inline-block";
+      contentUserInfo.style.display = "none";
+    }
+  }
+});
+
+
+document.addEventListener("DOMContentLoaded", function () {
+  const username = localStorage.getItem("username"); 
+  const welcomeTitle = document.getElementById("welcome-title");
+  const loginHint = document.getElementById("login-hint");
+  const loginWrap = document.getElementById("content-login-wrap");
+
+
+if (username) {
+  welcomeTitle.innerHTML = `
+    <p style="font-size:20px; margin-bottom:6px; color:#333;">나혜 컴퍼니</p>
+    <span style="color:#333; font-weight:600;">${username}님, </span>
+    <span class="unique-text">안녕하세요.</span>
+    <p style="font-size:18px; margin-top:6px; color:#333;">방문해주셔서 감사합니다.</p>
+  `;
+
+  if (loginHint) loginHint.style.display = "none";
+  if (loginWrap) loginWrap.style.display = "none";
+}
+
+});

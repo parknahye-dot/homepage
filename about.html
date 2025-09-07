@@ -4,36 +4,98 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="나혜 컴퍼니 | 회사소개" />
+    <meta
+      name="description"
+      content="나혜 컴퍼니 | IT 솔루션 & 비즈니스 서비스 HTML 랜딩 페이지 템플릿"
+    />
 
     <!-- 파비콘 -->
-    <link rel="icon" href="images/favicon.ico" />
+    <link rel="icon" href="images/logo.ico" />
 
     <!-- 부트스트랩 css -->
     <link rel="stylesheet" href="css/bootstrap.min.css" />
+
     <!-- aos.css -->
     <link rel="stylesheet" href="css/aos.css" />
+
     <!-- fancybox css -->
     <link rel="stylesheet" href="css/jquery.fancybox.min.css" />
+
     <!-- owl carousel css -->
     <link rel="stylesheet" href="css/owl.carousel.min.css" />
     <link rel="stylesheet" href="css/owl.theme.default.min.css" />
+
     <!-- toastr css -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css"/>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css"
+    />
+
     <!-- 부트스트랩 아이콘 -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"/>
-    <!-- Remix Icon -->
-    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet"/>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    />
+
+    <!-- Remix Icon (ri-*) -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
+
     <!-- 구글 폰트 -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100;200;300;400;500;600;700;800&display=swap" rel="stylesheet"/>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Outfit:wght@100;200;300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+
     <!-- 메인 css -->
     <link rel="stylesheet" href="css/style.css" />
 
-    <title>회사소개 | 나혜 컴퍼니</title>
+    <title>나혜 컴퍼니</title>
   </head>
+
   <body class="home-1">
+    <!-- 시작: 로딩화면 -->
+    <div id="preloader">
+      <svg
+        id="mainSVG"
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 800 600"
+      >
+        <defs>
+          <radialGradient
+            id="mainGrad"
+            cx="400"
+            cy="300"
+            fx="400"
+            fy="300"
+            r="100"
+            gradientUnits="userSpaceOnUse"
+          >
+            <stop offset=".68" stop-color="#21df51" />
+            <stop offset=".72" stop-color="#3add63" />
+            <stop offset=".77" stop-color="#4fdd73" />
+            <stop offset=".82" stop-color="#66db83" />
+            <stop offset=".88" stop-color="#7cd893" />
+            <stop offset=".93" stop-color="#95d8a6" />
+            <stop offset=".99" stop-color="#bde6c7" />
+            <stop offset="1" stop-color="#e3f1e7" />
+          </radialGradient>
+        </defs>
+        <circle id="fillDot" cx="400" cy="300" fill="#21df51" r="100" />
+        <circle id="gradDot" cx="400" cy="300" fill="url(#mainGrad)" r="100" />
+      </svg>
+    </div>
+    <!-- 끝: 로딩화면 -->
+
+    <!-- 시작: 위로가기 버튼 -->
+    <div id="progress">
+      <span id="progress-value"><i class="bi bi-arrow-up-short"></i></span>
+    </div>
+    <!-- 끝: 위로가기 버튼 -->
 
     <!-- ======= 헤더 ======= -->
     <header class="header">
@@ -43,52 +105,138 @@
             <img src="images/logo/logo.png" class="logo" alt="로고" />
           </a>
 
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarNav"
+            aria-controls="navbarNav"
+            aria-expanded="false"
+            aria-label="토글 메뉴"
+          >
             <i class="bi bi-list" id="menu"></i>
           </button>
 
-          <div class="collapse navbar-collapse justify-content-between" id="navbarNav">
+          <div
+            class="collapse navbar-collapse justify-content-between"
+            id="navbarNav"
+          >
             <ul class="navbar-nav ms-auto" id="navbar">
-              <li class="nav-item"><a class="nav-link" href="index.html">홈</a></li>
-              <li class="nav-item"><a class="nav-link active" href="about.html">회사소개</a></li>
-              <li class="nav-item"><a class="nav-link" href="history.html">경력</a></li>
-              <li class="nav-item"><a class="nav-link" href="technology.html">기술스택</a></li>
+              <li class="nav-item">
+                <a class="nav-link" href="index.html">홈</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="about.html">회사소개</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="history.html">경력</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="technology.html">기술스택</a>
+              </li>
             </ul>
-            <div class="d-flex ms-auto">
-              <a class="btn" href="login.html">로그인</a>
-              <button id="mode-toggle" class="btn-light-mode switch-button">
-                <i id="mode-icon" class="bi bi-moon-fill"></i>
-              </button>
-            </div>
+
+<div class="d-flex ms-auto align-items-center gap-2">
+  <a class="btn" href="login.html" id="login-btn">로그인</a>
+  <span id="user-info" style="display:none; font-weight:600;"></span>
+  <a href="#" id="logout-btn" style="display:none; margin-left:10px;">로그아웃</a>
+  <button id="mode-toggle" class="btn-light-mode switch-button">
+    <i id="mode-icon" class="bi bi-moon-fill"></i>
+  </button>
+</div>
+
           </div>
         </div>
       </nav>
     </header>
     <!-- ======= 끝: 헤더 ======= -->
 
-    <!-- ============== 히어로 섹션 ========== -->
-    <section class="hero d-flex flex-column justify-content-center align-items-center" id="hero">
-      <div id="particles-js"></div>
-      <div class="container">
-        <div class="row justify-content-center align-items-center">
-          <div class="hero-text col-12 col-lg-5">
-            <h2 class="title col-12" data-aos="fade-up" data-aos-delay="150">
-              나혜 컴퍼니 <br />
-              <span class="unique-text">회사소개</span>
-            </h2>
-            <p data-aos="fade-up" data-aos-delay="200">
-              저희 회사는 2000년부터 최고의 IT 솔루션을 제공해왔습니다.
+        <!-- ============== 서비스 ========== -->
+    <section class="container services py-5" id="services">
+      <div class="heading">
+        <span class="pretitle" data-aos="fade-up"> 서비스 </span>
+        <h2
+          class="title col-lg-10 col-12"
+          data-aos="fade-up"
+          data-aos-delay="100"
+        >
+          저희 회사는 어떤 회사일까요?
+        </h2>
+        <p class="col-lg-7 col-12" data-aos="fade-up" data-aos-delay="150">
+          회사 설립 25주년 경험과 노하우를 바탕으로<br />
+          고객 맞춤형 IT 솔루션을 제공합니다.
+        </p>
+      </div>
+
+      <div class="row gy-4 gx-4">
+        <!-- 1 -->
+        <div class="col-md-6 col-12 col-lg-4 mx-auto">
+          <div
+            class="box box-service box-hover"
+            data-aos="fade-right"
+            data-aos-delay="250"
+          >
+            <div class="box-icon my-2">
+              <i class="bi bi-code-slash"></i>
+            </div>
+            <h2 class="title-2 my-2">HTML</h2>
+            <p>
+              웹 페이지 구조를 만드는 표준 마크업 언어로<br />
+              기본적인 웹사이트 제작의 핵심 기술입니다.
             </p>
+            <a href="service-single.html" class="my-2 learn-more">
+              더 알아보기 <i class="bi bi-arrow-right"></i>
+            </a>
           </div>
-          <div class="col-12 col-lg-7 mx-md-auto text-center" data-aos="fade-left" data-aos-delay="100">
-            <img class="img-fluid" alt="about-hero-img" src="images/index/1.png" />
+        </div>
+
+        <!-- 2 -->
+        <div
+          class="col-md-6 col-lg-4 mx-auto"
+          data-aos="fade-down"
+          data-aos-delay="200"
+        >
+          <div class="box box-service box-hover">
+            <div class="box-icon my-2">
+              <i class="bi bi-megaphone-fill"></i>
+            </div>
+            <h2 class="title-2 my-2">CSS</h2>
+            <p>
+              웹 페이지의 디자인과 레이아웃을 담당하며<br />
+              사용자 친화적인 UI/UX 구현에 활용됩니다.
+            </p>
+            <a href="service-single.html" class="my-2 learn-more">
+              더 알아보기 <i class="bi bi-arrow-right"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- 3 -->
+        <div
+          class="col-md-6 col-lg-4 mx-auto"
+          data-aos="fade-left"
+          data-aos-delay="250"
+        >
+          <div class="box box-service box-hover">
+            <div class="box-icon my-2">
+              <i class="bi bi-search"></i>
+            </div>
+            <h2 class="title-2 my-2">JavaScript</h2>
+            <p>
+              웹에 동적인 기능을 추가하여<br />
+              사용자 경험을 풍부하게 만들어주는 프로그래밍 언어입니다.
+            </p>
+            <a href="service-single.html" class="my-2 learn-more">
+              더 알아보기 <i class="bi bi-arrow-right"></i>
+            </a>
           </div>
         </div>
       </div>
     </section>
-    <!-- ============== 끝: 히어로 섹션 ========== -->
+    <!-- ============== 끝: 서비스 ========== -->
 
-    <!-- ============== 회사 소개 (About) ========== -->
+
+        <!-- ============== 회사 소개 (About) ========== -->
     <section class="about py-5 mt-5" id="about">
       <div class="container">
         <div class="row mt-5 justify-content-center align-items-center">
@@ -97,7 +245,7 @@
               회사 소개
             </span>
             <h2 class="title col-12" data-aos="fade-up" data-aos-delay="250">
-              최고의 IT 솔루션 제공 <span class="unique-text">2000년부터</span>
+              최고의 IT 솔루션 제공 <br> <span class="unique-text">Since 2000년</span>
             </h2>
             <p class="col-lg-10 col-12" data-aos="fade-up" data-aos-delay="300">
               저희 나혜 컴퍼니는 못하는 것이 없습니다.
@@ -178,10 +326,10 @@
             </div>
           </div>
         </div>
-    <!-- ============== 끝: 회사 소개 ========== -->
 
-    <!-- ======= Footer ======= -->
-      <div class="footer">
+
+            <!-- ============== Footer ========== -->
+    <div class="footer">
       <div class="container">
         <div class="row justify-content-center align-items-center g-4">
           <div class="col-12 col-lg-3 col-md-6 mx-auto my-4">
@@ -195,12 +343,21 @@
                 언제나 고객과 함께 성장하는 나혜 컴퍼니입니다.
               </p>
               <h4 class="my-2">팔로우하기</h4>
-              <div class="social d-flex gap-2">
-                <div class="icon"><i class="bi bi-facebook"></i></div>
-                <div class="icon"><i class="bi bi-instagram"></i></div>
-                <div class="icon"><i class="bi bi-twitter-x"></i></div>
-                <div class="icon"><i class="bi bi-youtube"></i></div>
-              </div>
+<div class="social d-flex gap-2">
+  <a href="https://www.facebook.com/" target="_blank" class="icon">
+    <i class="bi bi-facebook"></i>
+  </a>
+  <a href="https://www.instagram.com/" target="_blank" class="icon">
+    <i class="bi bi-instagram"></i>
+  </a>
+  <a href="https://twitter.com/" target="_blank" class="icon">
+    <i class="bi bi-twitter-x"></i>
+  </a>
+  <a href="https://www.youtube.com/" target="_blank" class="icon">
+    <i class="bi bi-youtube"></i>
+  </a>
+</div>
+
             </div>
           </div>
 
@@ -232,10 +389,10 @@
             <h4>팔로우</h4>
             <ul class="d-flex flex-column gap-3">
               <li class="d-flex align-items-center gap-2">
-                <i class="bi bi-chevron-right"></i><a href="#">GitHub</a>
+                <i class="bi bi-chevron-right"></i><a href="https://github.com/parknahye-dot">GitHub</a>
               </li>
               <li class="d-flex align-items-center gap-2">
-                <i class="bi bi-chevron-right"></i><a href="#">E-mail</a>
+                <i class="bi bi-chevron-right"></i><a href="https://mail.google.com/mail/?view=cm&fs=1&to=a207903@gmail.com">E-mail</a>
               </li>
             </ul>
           </div>
@@ -269,10 +426,9 @@
         </div>
       </div>
     </div>
-    </section>
-    <!-- ======= 끝: Footer ======= -->
+    <!-- ============== 끝: Footer ========== -->
 
-    <!-- JS -->
+
         <!-- JQuery -->
     <script src="js/jquery-3.6.1.min.js"></script>
 
@@ -306,8 +462,5 @@
 
     <!-- 메인 스크립트 -->
     <script src="js/main.js"></script>
-    <script>
-      AOS.init();
-    </script>
   </body>
 </html>

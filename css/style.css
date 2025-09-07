@@ -2035,3 +2035,12 @@ label.error,
   margin-top: 0;
   margin-bottom: auto; /* 남는 공간 밀어내기 */
 }
+
+
+/* 데스크탑 화면 이상에서 메뉴 글씨 키우기 */
+@media (min-width: 992px) {  /* Bootstrap 기준 lg 이상 */
+  .navbar-nav .nav-link {
+    font-size: 1.5rem;   /* 기본은 1rem (16px 정도), 1.2rem ≈ 19px */
+    font-weight: 600;    /* 글씨 두껍게 (선택사항) */
+  }
+}
