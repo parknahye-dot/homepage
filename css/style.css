@@ -2044,3 +2044,14 @@ label.error,
     font-weight: 600;    /* 글씨 두껍게 (선택사항) */
   }
 }
+
+
+/* about.html 전용 - 헤더에 가리지 않게 */
+.about-page main,
+.about-page section.services {
+  margin-top: 10px !important; /* 헤더 높이보다 크게 */
+  display: block !important;    /* 혹시 충돌 있을 때 강제 노출 */
+  position: relative !important;
+  z-index: 1 !important;
+}
+
