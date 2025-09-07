@@ -1771,6 +1771,44 @@ svg {
   color: #b1b1b1;
 }
 
+
+
+
+/* 푸터를 무조건 세로 정렬 */
+.footer .row {
+  display: flex;
+  flex-direction: column; /* 무조건 세로 */
+  align-items: center;    /* 가운데 정렬 */
+  text-align: center;     /* 글자 중앙 */
+}
+
+.footer .col {
+  margin-bottom: 20px; /* 아래 여백 */
+}
+
+
+.footer .row {
+  display: flex;
+  flex-direction: column;   /* 가로 → 세로 */
+  align-items: center;      /* 가로 중앙 */
+  text-align: center;       /* 안의 텍스트도 중앙 */
+}
+
+.footer .col-12 {
+  margin-bottom: 30px;      /* 아래 여백 (간격) */
+}
+
+.footer h4 {
+  margin-bottom: 15px;
+}
+
+.footer ul {
+  padding: 0;
+  list-style: none;
+}
+
+
+
 /*============== End Footer section ==========*/
 
 /* ================= start 404 page ===================== */
@@ -2053,5 +2091,19 @@ label.error,
   display: block !important;    /* 혹시 충돌 있을 때 강제 노출 */
   position: relative !important;
   z-index: 1 !important;
+}
+
+/* 라이트모드 */
+.welcome-subtitle,
+#welcome-title #user-info,
+.welcome-message {
+  color: #333;
+}
+
+/* 다크모드 */
+body.dark-mode .welcome-subtitle,
+body.dark-mode #welcome-title #user-info,
+body.dark-mode .welcome-message {
+  color: #fff !important;
 }
 

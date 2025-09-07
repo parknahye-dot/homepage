@@ -645,14 +645,15 @@ document.addEventListener("DOMContentLoaded", function () {
 
 if (username) {
   welcomeTitle.innerHTML = `
-    <p style="font-size:20px; margin-bottom:6px; color:#333;">나혜 컴퍼니</p>
-    <span style="color:#333; font-weight:600;">${username}님, </span>
+    <p class="welcome-subtitle">나혜 컴퍼니</p>
+    <span id="user-info">${username}님, </span>
     <span class="unique-text">안녕하세요.</span>
-    <p style="font-size:18px; margin-top:6px; color:#333;">방문해주셔서 감사합니다.</p>
+    <p class="welcome-message">방문해주셔서 감사합니다.</p>
   `;
 
   if (loginHint) loginHint.style.display = "none";
   if (loginWrap) loginWrap.style.display = "none";
 }
+
 
 });
