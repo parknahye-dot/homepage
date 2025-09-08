@@ -1,3 +1,14 @@
+document.addEventListener("DOMContentLoaded", () => {
+  console.log("[INFO] DOM 로드 완료");
+
+  const nav = document.querySelector("nav");
+  console.log("[CHECK] nav 요소:", nav);
+
+  const buttons = document.querySelectorAll("button");
+  buttons.forEach((btn, i) => {
+    console.log(`[CHECK] 버튼 ${i + 1}: text="${btn.innerText}" | id="${btn.id}"`);
+  });
+});
 document.addEventListener("DOMContentLoaded", function () {
     var form = document.querySelector("form");
 
@@ -513,7 +524,7 @@ if (typeof VanillaTilt !== 'undefined') {
   });
 })();
 
-// ---------------- box hover → 100% 표시 ---------------- //
+
 // ---------------- box hover → 100% 표시 ---------------- //
 document.addEventListener("DOMContentLoaded", function () {
   // ⬇️ About 섹션 안의 .box.box-hover만 선택
@@ -530,6 +541,18 @@ document.addEventListener("DOMContentLoaded", function () {
         box.classList.add("show-percent");
       }, 400);
     });
+  });
+});
+
+document.addEventListener("DOMContentLoaded", () => {
+  console.log("[INFO] DOM 로드 완료");
+
+  const nav = document.querySelector("nav");
+  console.log("[CHECK] nav 요소:", nav);
+
+  const buttons = document.querySelectorAll("button");
+  buttons.forEach((btn, i) => {
+    console.log(`[CHECK] 버튼 ${i + 1}: text="${btn.innerText}" | id="${btn.id}"`);
   });
 });
 
@@ -657,3 +680,16 @@ if (username) {
 
 
 });
+
+const sampleBtn = document.querySelector("button");
+if (sampleBtn) {
+  sampleBtn.addEventListener("click", () => {
+    console.log("[EVENT] 버튼 클릭됨:", sampleBtn.innerText);
+  });
+}
+
+// try {
+//   nonExistentFunction();
+// } catch (err) {
+//   console.error("[ERROR] 예상치 못한 오류 발생:", err);
+// }
